@@ -1,14 +1,20 @@
+// module("About Asserts (topics/about_asserts.js)");
+const { ok, equal } = require('assert')
+// const { __, test } = require('../support/koans')
+const koans = require('../support/koans')
+// const __ = koans.__
+// const test = koans.test
+const { __ } = koans
+const { test } = koans
 
-module("About Asserts (topics/about_asserts.js)");
+test("ok", () => {
+    assert.ok(__ === true, 'what will satisfy the ok assertion?');
+})
 
-test("ok", function() {
-    ok(__ === true, 'what will satisfy the ok assertion?');
-});
+test("not ok", () => {
+    assert.ok(__ === false, 'what is a false value?');
+})
 
-test("not ok", function() {
-    ok(__ === false, 'what is a false value?');
-});
-
-test("equal", function() {
-    equal(__, 1 + 1, 'what will satisfy the equal assertion?');
-});
+test("ok", () => {
+    assert.equal(__, 1 + 1, 'what will satisfy the equal assertion?');
+})

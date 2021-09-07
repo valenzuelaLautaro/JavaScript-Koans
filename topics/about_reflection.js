@@ -1,76 +1,79 @@
 // module("About Reflection (topics/about_reflection.js)");
-const { equal, deepEqual, ok } = require('assert')
-const { __, test } = require('../support/koans')
+export const scriptReflection = () => {
+    const { equal, deepEqual, ok } = require('assert')
+    const { __, test } = require('../support/koans')
 
-function A() {
-    this.aprop = "A";
-};
-
-function B() {
-    this.bprop = "B";
-};
-
-B.prototype = new A();
-
-test("typeof", () => {
-    equal("object", typeof({}), 'what is the type of an empty object?');
-    equal("string", typeof('apple'), 'what is the type of a string?');
-    equal("number", typeof(-5), 'what is the type of -5?');
-    equal("boolean", typeof(false), 'what is the type of false?');
-});
-
-test("property enumeration", () => {
-    const keys = [];
-    const values = [];
-    const person = { 
-        name: 'Amory Blaine', 
-        age: 102, 
-        unemployed: true
+    function A() {
+        this.aprop = "A";
     };
 
-    for(let propertyName in person) {
-        keys.push(propertyName);
-        values.push(person[propertyName]);
-    }
+    function B() {
+        this.bprop = "B";
+    };
 
-    ok(keys.equalTo(['name','age','unemployed']), 'what are the property names of the object?');
-    ok(values.equalTo(['Amory Blaine',102,true]), 'what are the property values of the object?');
-});
+    B.prototype = new A();
 
-test("hasOwnProperty", () => {
-    const b = new B();
-    const propertyName;
+    test("typeof", () => {
+        equal("object", typeof({}), 'what is the type of an empty object?');
+        equal("string", typeof('apple'), 'what is the type of a string?');
+        equal("number", typeof(-5), 'what is the type of -5?');
+        equal("boolean", typeof(false), 'what is the type of false?');
+    });
 
-    const keys = [];
-    for (propertyName in b) {
-        keys.push(propertyName);
-    }
-    equal(1, keys.length, 'how many elements are in the keys array?');
-    deepEqual([__, __], keys, 'what are the properties of the array?');
+    test("property enumeration", () => {
+        const keys = [];
+        const values = [];
+        const person = { 
+            name: 'Amory Blaine', 
+            age: 102, 
+            unemployed: true
+        };
 
-    // hasOwnProperty returns true if the parameter is a property directly on the object,
-    // but not if it is a property accessible via the prototype chain.
-    const ownKeys = [];
-    for(propertyName in b) {
-        if (b.hasOwnProperty(propertyName)) {
-            ownKeys.push(propertyName);
+        for(let propertyName in person) {
+            keys.push(propertyName);
+            values.push(person[propertyName]);
         }
-    }
-    equal(__, ownKeys.length, 'how many elements are in the ownKeys array?');
-    deepEqual([__], ownKeys, 'what are the own properties of the array?');
-});
 
-test("constructor property", () => {
-    const a = new A();
-    const b = new B();
-    equal(__, typeof(a.constructor), "what is the type of a's constructor?");
-    equal(__, a.constructor.name, "what is the name of a's constructor?");
-    equal(__, b.constructor.name, "what is the name of b's constructor?");
-});
+        ok(keys.equalTo(['name','age','unemployed']), 'what are the property names of the object?');
+        ok(values.equalTo(['Amory Blaine',102,true]), 'what are the property values of the object?');
+    });
 
-test("eval", () => {
-    // eval executes a string
-    let result = "";
-    eval("result = 'apple' + ' ' + 'pie'");
-    equal(__, result, 'what is the value of result?');
-});
+    test("hasOwnProperty", () => {
+        const b = new B();
+        //let propertyName;
+
+        const keys = [];
+        for (let propertyName in b) {
+            keys.push(propertyName);
+        }
+        equal(2, keys.length, 'how many elements are in the keys array?');
+        deepEqual(['bprop', 'aprop'], keys, 'what are the properties of the array?');
+
+        // hasOwnProperty returns true if the parameter is a property directly on the object,
+        // but not if it is a property accessible via the prototype chain.
+        const ownKeys = [];
+        for(let propertyName in b) {
+            if (b.hasOwnProperty(propertyName)) {
+                ownKeys.push(propertyName);
+            }
+        }
+        equal(1, ownKeys.length, 'how many elements are in the ownKeys array?');
+        deepEqual(['bprop'], ownKeys, 'what are the own properties of the array?');
+    });
+
+    test("constructor property", () => {
+        const a = new A();
+        const b = new B();
+        equal('function', typeof(a.constructor), "what is the type of a's constructor?");
+        equal('A', a.constructor.name, "what is the name of a's constructor?");
+        equal('A', b.constructor.name, "what is the name of b's constructor?");
+    });
+
+    test("eval", () => {
+        // eval executes a string
+        let result = "";
+        eval("result = 'apple' + ' ' + 'pie'");
+        equal('apple pie', result, 'what is the value of result?');
+    });
+}
+module.exports = scriptReflection

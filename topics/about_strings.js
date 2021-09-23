@@ -1,12 +1,12 @@
 // module("About Strings (topics/about_strings.js)");
-const scriptString = () => {
+const scriptStrings = () => {
     const { equal } = require('assert')
     const { __, test } = require('../support/koans')
 
     test("delimiters", () => {
         const singleQuotedString = 'apple';
         const doubleQuotedString = "apple";
-        equal(false, singleQuotedString === doubleQuotedString, 'are the two strings equal?');
+        equal(true, singleQuotedString === doubleQuotedString, 'are the two strings equal?');
     });
 
     test("concatenation", () => {
@@ -17,12 +17,12 @@ const scriptString = () => {
 
     test("character Type", () => {
         const characterType = typeof("Amory".charAt(1)); // typeof will be explained in about reflection
-        equal("m", characterType, 'Javascript has no character type');
+        equal("string", characterType, 'Javascript has no character type');
     });
 
     test("escape character", () => {
         const stringWithAnEscapedCharacter  = "\u0041pple";
-        equal("A", stringWithAnEscapedCharacter, 'what  is the value of stringWithAnEscapedCharacter?');
+        equal("Apple", stringWithAnEscapedCharacter, 'what  is the value of stringWithAnEscapedCharacter?');
     });
 
     test("string.length", () => {   
@@ -35,3 +35,4 @@ const scriptString = () => {
         equal("apple", fruit.slice(0,5), 'what is the value of fruit.slice(0,5)?');
     });
 }
+module.exports = scriptStrings

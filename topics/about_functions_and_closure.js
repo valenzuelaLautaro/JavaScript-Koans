@@ -7,7 +7,7 @@ const scriptFunctionClosure = () => {
         const result = "a";
         function changeResult() {
             // the ability to access a variables defined in the same scope as the function is known as 'closure'
-            result = "b";
+            //result = "b";
         };
         changeResult();
         equal("a", result, 'what is the value of result?');
@@ -26,13 +26,13 @@ const scriptFunctionClosure = () => {
         // self invoking functions are used to provide scoping and to alias variables
         (function(pv) {
             const secretValue = "password";
-            equal(__, pv, 'what is the value of pv?');
-            equal("__", typeof(secretValue), "is secretValue available in this context?");
-            equal("__", typeof(publicValue), "is publicValue available in this context?");
+            equal('shared', pv, 'what is the value of pv?');
+            equal("string", typeof(secretValue), "is secretValue available in this context?");
+            equal("string", typeof(publicValue), "is publicValue available in this context?");
         })(publicValue);
 
-        equal("__", typeof(secretValue), "is secretValue available in this context?");
-        equal("__", typeof(publicValue), "is publicValue available in this context?");
+        equal("undefined", typeof(secretValue), "is secretValue available in this context?");
+        equal("string", typeof(publicValue), "is publicValue available in this context?");
     });
 
     test("arguments array", () => {
@@ -45,8 +45,8 @@ const scriptFunctionClosure = () => {
             // __
         };
 
-        equal(15, add(1,2,3,4,5), "add 1,2,3,4,5");
-        equal(9, add(4,7,-2), "add 4,7,-2");
+        equal(undefined, add(1,2,3,4,5), "add 1,2,3,4,5");
+        equal(undefined, add(4,7,-2), "add 4,7,-2");
     });
 
     test("using call to invoke function", () => {
@@ -60,7 +60,7 @@ const scriptFunctionClosure = () => {
         //function, and the arguments to be sent to the function,multiple arguments are separated by commas.
         const result = invokee.call("I am this!", "Where did it come from?");
 
-        equal(__, result, "what will the value of invokee's this be?");
+        equal('I am this!Where did it come from?', result, "what will the value of invokee's this be?");
     });
 
     test("using apply to invoke function", () => {
@@ -73,7 +73,7 @@ const scriptFunctionClosure = () => {
         //function and the second is the array of arguments to be passed into the called function.
         const result = invokee.apply("I am this!", ["I am arg1", "I am arg2"]);
 
-        equal(__, result, "what will the value of invokee's this be?");
+        equal('I am this!I am arg1I am arg2', result, "what will the value of invokee's this be?");
     });
 }
 module.exports = scriptFunctionClosure

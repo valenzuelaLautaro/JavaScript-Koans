@@ -4,7 +4,7 @@ const scripts = [
     './topics/about_equality.js',
     './topics/about_truthyness.js',
     './topics/about_assignment.js',
-    //'./topics/about_control_structures.js',
+    './topics/about_control_structures.js',
     './topics/about_strings.js',
     './topics/about_arrays.js',
     './topics/about_reflection.js',

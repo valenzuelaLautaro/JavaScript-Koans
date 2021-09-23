@@ -1,5 +1,5 @@
 // module("About Scope (topics/about_scope.js)");
-export const scriptScope = () => {
+const scriptScope = () => {
     const { equal } = require('assert')
     const { __, test } = require('../support/koans')
 

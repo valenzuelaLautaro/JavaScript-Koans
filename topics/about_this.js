@@ -1,5 +1,5 @@
 // module("About this (topics/about_this.js)");
-export const scriptThis = () => {
+const scriptThis = () => {
 	const { equal } = require('assert')
 	const { __, test } = require('../support/koans')
 

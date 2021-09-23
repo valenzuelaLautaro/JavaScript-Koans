@@ -1,5 +1,5 @@
 // module("About Functions And Closure (topics/about_functions_and_closure.js)");
-export const scriptFunctionClosure = () => {
+const scriptFunctionClosure = () => {
     const { equal } = require('assert')
     const { __, test } = require('../support/koans')
 

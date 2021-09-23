@@ -1,5 +1,5 @@
 // module("About Objects (topics/about_objects.js)");
-export const scriptObjects = () => {
+const scriptObjects = () => {
     const { equal } = require('assert')
     const { __, test } = require('../support/koans')
 

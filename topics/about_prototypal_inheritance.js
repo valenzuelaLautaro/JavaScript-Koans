@@ -1,6 +1,6 @@
 // demonstrate the effect of modifying an objects prototype before and after the object is constructed
 // module("About Prototypal Inheritance (topics/about_prototypal_inheritance.js)");
-export const scriptPrototypalInheritance = () => {
+const scriptPrototypalInheritance = () => {
     const { equal } = require('assert')
     const { __, test } = require('../support/koans')
 

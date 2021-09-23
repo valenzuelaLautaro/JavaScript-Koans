@@ -1,5 +1,5 @@
 // module("About Equality (topics/about_equality.js)");
-export const scriptEquality = () => {
+const scriptEquality = () => {
     const { equal, ok } = require('assert')
     const { __, test } = require('../support/koans')
 

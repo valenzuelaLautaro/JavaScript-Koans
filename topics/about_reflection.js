@@ -1,5 +1,5 @@
 // module("About Reflection (topics/about_reflection.js)");
-export const scriptReflection = () => {
+const scriptReflection = () => {
     const { equal, deepEqual, ok } = require('assert')
     const { __, test } = require('../support/koans')
 

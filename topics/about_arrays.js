@@ -1,5 +1,5 @@
 // module("About Arrays (topics/about_arrays.js)");
-export const scriptArrays = () => {
+const scriptArrays = () => {
     const { equal, deepEqual } = require('assert')
     const { __, test } = require('../support/koans')
 
@@ -34,7 +34,7 @@ export const scriptArrays = () => {
         stack.push("second");
 
         equal("second", stack.pop(), 'what will be the first value popped off the stack?');
-        equal("fist", stack.pop(), 'what will be the second value popped off the stack?');
+        equal("first", stack.pop(), 'what will be the second value popped off the stack?');
     });
     test("queue methods", () => {
         const queue = [];

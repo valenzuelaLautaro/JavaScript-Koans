@@ -1,5 +1,5 @@
 // module("About Assignment (topics/about_assignment.js)");
-export const scriptAssignment = () => {
+const scriptAssignment = () => {
     const { equal } = require('assert')
     const { __, test } = require('../support/koans')
 

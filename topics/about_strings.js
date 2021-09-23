@@ -1,5 +1,5 @@
 // module("About Strings (topics/about_strings.js)");
-export const scriptString = () => {
+const scriptString = () => {
     const { equal } = require('assert')
     const { __, test } = require('../support/koans')
 

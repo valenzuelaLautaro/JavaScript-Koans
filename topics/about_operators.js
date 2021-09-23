@@ -1,5 +1,5 @@
 // module("About Operators (topics/about_operators.js)");
-export const scriptOperators = () => {
+const scriptOperators = () => {
   const { equal } = require('assert')
   const { __, test } = require('../support/koans')
 

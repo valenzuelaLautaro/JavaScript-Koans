@@ -2,7 +2,7 @@
 
 // https://developer.mozilla.org/en/JavaScript/Guide/Inheritance_and_the_prototype_chain
 // module("About Prototype Chain (topics/about_prototype_chain.js)");
-export const scriptPrototypeChain = () => {
+const scriptPrototypeChain = () => {
   const { equal } = require('assert')
   const { __, test } = require('../support/koans')
 

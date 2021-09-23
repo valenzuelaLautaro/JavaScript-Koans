@@ -1,5 +1,5 @@
 // module("About Numbers (topics/about_numbers.js)");
-export const scriptNumbers = () => {
+const scriptNumbers = () => {
     const { equal } = require('assert')
     const { __, test } = require('../support/koans')
 

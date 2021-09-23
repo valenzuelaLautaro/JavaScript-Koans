@@ -1,5 +1,5 @@
 // module("About Truthyness (topics/about_truthyness.js)");
-export const scriptTruthyness = () => {
+const scriptTruthyness = () => {
     const { equal, deepEqual } = require('assert')
     const { __, test } = require('../support/koans')
 

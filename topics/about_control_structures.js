@@ -1,5 +1,5 @@
 // module("About Control Structures (topics/about_control_structures.js)");
-export const scriptControlStructures = () => {
+const scriptControlStructures = () => {
 	const { equal } = require('assert')
 	const { __, test } = require('../support/koans');
 	const { scriptFunction } = require('./about_arrays');
@@ -32,7 +32,7 @@ export const scriptControlStructures = () => {
 		for (let property_name in person) {
 	  		result = result + property_name;
 		}
-		equal(person, result, 'what is the value of result?');
+		equal('nameage', result, 'what is the value of result?');
 	});
 
 	test("ternary operator", () => {
